@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rajnish Yadav | Portfolio</title>
+    <!-- External CSS link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar-backdrop" id="backdrop"></div>
+  <aside class="sidebar" id="sidebar" aria-hidden="true" aria-label="Sidebar">
+    <button class="icon-btn close" id="closeSidebar" aria-label="Close sidebar">✕</button>
+    <a href="#home">🏠 Home</a>
+    <a href="#about">🙋 About</a>
+    <a href="#projects">🧩 Projects</a>
+    <a href="#skills">🛠️ Skills</a>
+    <a href="#contact">✉️ Contact</a>
+    <div style="margin-top:auto; display:flex; gap:.5rem;">
+      <button class="btn" id="toggleTheme">Toggle Theme</button>
+      <a class="btn primary" href="#contact">Hire Me</a>
+    </div>
+  </aside>
+
+  <!-- Top Bar / Navbar -->
+  <nav class="topbar">
+    <div class="container inner">
+      <div class="brand">
+        <div class="logo">ＲＹ</div>
+        <span>Rajnish Yadav</span>
+      </div>
+
+      <div class="nav" role="menubar">
+        <a href="#home" role="menuitem">Home</a>
+        <a href="#about" role="menuitem">About</a>
+        <a href="#projects" role="menuitem">Projects</a>
+        <a href="#skills" role="menuitem">Skills</a>
+        <div class="dropdown" role="menuitem">
+          <div class="dropdown-btn" id="dropBtn" aria-expanded="false" aria-haspopup="true">More ▾</div>
+          <div class="dropdown-menu" id="dropdownMenu" role="menu">
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+            <a href="Image/Resume (2).pdf">Download Resume</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="icon-btn" id="toggleThemeTop" aria-label="Toggle theme">🌓</button>
+        <button class="icon-btn hamburger" id="openSidebar" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header / Hero -->
+  <header id="home" class="hero container">
+    <div class="content">
+      <div>
+        <span class="chip">Spring Boot & Microservices • Hibernate • REST APIs • Oracle</span>
+        <h1>Hi, I’m Rajnish — Java Developer crafting clean, scalable backends.</h1>
+        <p class="lead">I build reliable APIs, robust data layers, and user‑friendly web apps. Explore my work below and feel free to reach out for collaborations, freelancing, or full‑time opportunities.
+        </p>
+        <div style="display:flex; gap:.6rem; margin-top: .9rem;">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
+      </div>
+      <div class="bubble">
+        <span>🚀 Available for Freelance</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="container">
+    <div class="section-head">
+      <h2>About</h2>
+      <p>Short intro</p>
+    </div>
+    <div class="card">
+      <p>
+        I’m a software developer with hands‑on experience in <strong>Spring Boot</strong>, <strong>REST APIs</strong>, <strong>Hibernate/JPA</strong>, and <strong>MySQL/Oracle</strong>. I enjoy turning complex problems into simple solutions and writing clean, maintainable code.
+      </p>
+      <p>
+        Recently, I’ve built projects like <em>Loan Processing System</em>, <em>Shipping Cost Calculator</em>, and <em>Student Record Sync</em> with multi‑datasource setups.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="container">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <p>Some recent work</p>
+    </div>
+    <div class="grid projects">
+      <article class="card project">
+        <!--<div class="thumb">Project Cover</div>-->
+        <div class="thumb">
+          <img src="Image/proj1.png" alt="Patient Appointment System Cover" />
+        </div>
+        <h3>Patient Appointment System</h3>
+        <p>A Spring Boot-based system for managing patients, appointments, doctors, and visits with REST APIs and console menu options.</p>
+        <div class="meta">
+          <span class="chip">Spring Boot</span>
+          <span class="chip">Query methods</span> 
+          <span class="chip">Spring Data JPA</span>
+          <span class="chip">REST API</span>
+          <span class="chip">Hibernate</span>
+          <span class="chip">MySQL</span>
+          
+        </div>        
+      </article>
+
+      <article class="card project">
+        <!--<div class="thumb">Project Cover</div>-->
+        <div class="thumb">
+          <img src="Image/proj3.png" alt="Book Store Application" />
+        </div>
+        <h3>Book Store Application</h3>
+        <p>A Spring Boot console-based CRUD system for managing books with entity-relation mapping (Book ↔ Author) and database persistence.</p>
+        <div class="meta">
+          <span class="chip">Spring Boot</span>
+          <span class="chip">Spring Data JPA</span>
+          <span class="chip">MySQL/Oracle</span>
+          <span class="chip">Hibernate & Query methods</span>
+          <span class="chip">CRUD</span>
+        </div>
+      </article>
+      
+
+      <article class="card project">
+        <!--<div class="thumb">Project Cover</div>-->
+        <div class="thumb">
+          <img src="Image/proj2.png" alt="Employee Management System Cover" />
+        </div>
+        <h3>Employee Management System</h3>
+        <p>A Spring Boot console-based CRUD application for managing employees with layered architecture (Entity, Repository, Service) and database integration.</p>
+        <div class="meta">
+          <span class="chip">Spring Boot</span>
+          <span class="chip">Spring Data JPA</span>
+          <span class="chip">Hibernate & Query methods</span>
+          <span class="chip">REST API</span>
+          <span class="chip">MySQL</span>
+        </div>        
+      </article>
+
+      <article class="card project">
+        <!--<div class="thumb">Project Cover</div>-->
+        <div class="thumb">
+          <img src="Image/pro4.png" alt="Actor Management API" />
+        </div> 
+        <h3>Actor Management API</h3>
+        <p>REST API with soft delete, pagination, and filtering using Spring Data JPA.</p>
+        <div class="meta">
+          <span class="chip">Spring Data JPA</span>
+          <span class="chip">REST API & H2</span>
+          <span class="chip">Pagination</span>
+          <span class="chip">Hibernate & Query methods</span>
+          <span class="chip">Soft deletion</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="container">
+    <div class="section-head">
+      <h2>Skills</h2>
+      <p>Core technologies</p>
+    </div>
+    <div class="grid skills">
+      <div class="card skill">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.4rem">
+          <strong>Java / OOP</strong><span>Advanced</span>
+        </div>
+        <div class="bar"><span data-width="92%"></span></div>
+      </div>
+      <div class="card skill">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.4rem">
+          <strong>Spring Boot & Microservices</strong><span>Advanced</span>
+        </div>
+        <div class="bar"><span data-width="88%"></span></div>
+      </div>
+      <div class="card skill">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.4rem">
+          <strong>REST APIs</strong><span>Advanced</span>
+        </div>
+        <div class="bar"><span data-width="90%"></span></div>
+      </div>
+      <div class="card skill">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.4rem">
+          <strong>MySQL / Oracle</strong><span>Intermediate</span>
+        </div>
+        <div class="bar"><span data-width="75%"></span></div>
+      </div>
+    </div>
+  </section>
+
+
+   <!-- Skills (Extended with Icons Grid) -->
+<section id="skills" class="container">
+    <div class="section-head">
+      <h2>Tools & technologies</h2>
+      <p>Core technologies and tools I use</p>
+    </div>
+  
+    <!-- Existing skill bars here (optional keep/remove) -->
+  
+    <!-- New Grid Section -->
+    <div class="edu-exp grid" style="gap:2rem;">
+      <!-- Frontend -->
+      <div class="card">
+        <h3>Frontend Development</h3>
+        <div class="grid-container">
+          <div class="grid-items"><img src="Image/html5.png" alt=""><p>HTML5</p></div>
+          <div class="grid-items"><img src="Image/cssimg.png" alt=""><p>CSS3</p></div>
+          <div class="grid-items"><img src="Image/bootstrap.png" alt=""><p>Bootstrap</p></div>
+          <div class="grid-items"><img src="Image/js.png" alt=""><p>Java Script</p></div>
+          <div class="grid-items"><img src="Image/flutter.png" alt=""><p>Flutter UI</p></div>
+          <div class="grid-items"><img src="Image/material-ui.png" alt=""><p>Material UI</p></div>
+        </div>
+      </div>
+  
+      <!-- Tools -->
+      <div class="card">
+        <h3>Development Tools & Software</h3>
+        <div class="grid-container">
+          <div class="grid-items"><img src="Image/VS-Code.png" alt=""><p>VS Code</p></div>
+          <div class="grid-items"><img src="Image/git (1).png" alt=""><p>Git</p></div>
+          <div class="grid-items"><img src="Image/social.png" alt=""><p>GitHub</p></div>
+          <div class="grid-items"><img src="Image/android-studio.png" alt=""><p>Android Studio</p></div>
+          <div class="grid-items"><img src="Image/javaeclipse.png" alt=""><p>Eclipse</p></div>
+          <div class="grid-items"><img src="Image/figma.png" alt=""><p>Figma</p></div>
+        </div>
+      </div>
+  
+      <!-- Backend -->
+      <div class="card">
+        <h3>Backend Development</h3>
+        <div class="grid-container">
+          <div class="grid-items"><img src="Image/Java.png" alt=""><p>Java</p></div>
+          <div class="grid-items"><img src="Image/spring-boot.png" alt=""><p>Spring-Boot</p></div>
+          <div class="grid-items"><img src="Image/database.png" alt=""><p>Oracle db</p></div>
+          <div class="grid-items"><img src="Image/mysql.png" alt=""><p>MySQL</p></div>
+          <div class="grid-items"><img src="Image/firebase.png" alt=""><p>Firebase</p></div>
+          <div class="grid-items"><img src="Image/AWS.png" alt=""><p>AWS</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience (anchor target for dropdown) -->
+  <section id="experience" class="container">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <p>Highlights</p>
+    </div>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      <div class="card">
+        <h3>Java Developer — Projects</h3>
+        <p>6+ months of hands‑on development building real-world apps using Spring Boot and REST.</p>
+        <ul>
+          <li>Designed and implemented scalable APIs</li>
+          <li>Integrated databases and optimized queries</li>
+          <li>Used patterns like Strategy & layered architecture</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Full Stack Foundations</h3>
+        <p>Working knowledge of HTML/CSS/JS with ability to craft simple UIs and connect to APIs.</p>
+        <ul>
+          <li>Auth flows, validation, and error handling</li>
+          <li>Responsive UI components</li>
+          <li>Deployed apps (local/cloud)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+  <h2 class="section-title">Contact Me</h2>
+  <div class="contact-container">
+    <!-- Contact Form -->
+    <form class="contact-form" action="https://api.web3forms.com/submit" method="post">
+      <div class="form-group">
+         <input type="hidden" name="access_key" value="d782f8df-ec8c-4e17-bfdc-35496cba177e">
+                
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+
+    <!-- Quick Links Card -->
+    <div class="contact-card">
+      <h3>Quick Links</h3>
+      <ul class="contact-link">
+        <li><a href="mailto:rajnishyadav1242@email.com">📧 rajnishyadav1242@gmail.com</a></li>
+        <li><a href="tel:+916393652674">📞 +91 6393652674</a></li>
+        <li><a href="https://www.linkedin.com/in/rajnish-yadav-235b35273/" target="_blank">🔗 LinkedIn</a></li>
+        <li><a href="https://github.com/Rajnish123Yadav" target="_blank">💻 GitHub</a></li>
+      </ul>
+
+      <div class="social-icons">
+        <a href="#"><img src="Image/facebook.png" alt="Facebook" /></a>
+        <a href="#"><img src="Image/twitter.png" alt="Twitter" /></a>
+        <a href="https://www.instagram.com/whorajnishyadav/"><img src="Image/instagram.png" alt="Instagram" /></a>
+        <a href="Image/Resume (2).pdf"><img src="Image/download2.png" alt="Download Resume" /></a>
+      </div>          
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container foot">
+      <p style="font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 14px; color: #333;">
+          @ Rajnish Yadav. All rights reserved.
+      </p>
+
+      <div style="display:flex; gap:.6rem; align-items:center">
+        <a class="btn" href="#home">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS link -->
+  <script src="script.js"></script>
+</body>
+</html>
