@@ -6,8 +6,39 @@
   <title>Rajnish Yadav | Portfolio</title>
     <!-- External CSS link -->
     <link rel="stylesheet" href="style.css">
+
+
+    <style>
+  /* ===== Triangle Background ===== */
+  .cursor-shape {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background: rgba(74, 126, 219, 0.12);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    pointer-events: none;
+    transform: translate(-50%, -50%) rotate(0deg);
+    filter: blur(4px);
+    z-index: 1; /* behind all content */
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+</style>
 </head>
 <body>
+
+  
+<!-- ===== Triangle Background ===== -->
+<div class="cursor-shape"></div>
+<div class="cursor-shape"></div>
+<div class="cursor-shape"></div>
+<div class="cursor-shape"></div>
+<div class="cursor-shape"></div>
+<div class="cursor-shape"></div>
+<div class="cursor-shape"></div>
+
   <!-- Sidebar -->
   <div class="sidebar-backdrop" id="backdrop"></div>
   <aside class="sidebar" id="sidebar" aria-hidden="true" aria-label="Sidebar">
@@ -329,7 +360,7 @@
         <a href="#"><img src="Image/facebook.png" alt="Facebook" /></a>
         <a href="#"><img src="Image/twitter.png" alt="Twitter" /></a>
         <a href="https://www.instagram.com/whorajnishyadav/"><img src="Image/instagram.png" alt="Instagram" /></a>
-        <a href="Image/Rajnish Yadav Resume(1) (2).pdf"><img src="Image/download2.png" alt="Download Resume" /></a>
+        <a href="Image/Resume (2).pdf"><img src="Image/download2.png" alt="Download Resume" /></a>
       </div>          
     </div>
   </div>
@@ -347,6 +378,40 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===== Triangle Animation JS ===== -->
+<script>
+const shapes = document.querySelectorAll('.cursor-shape');
+let mouseX = 0, mouseY = 0;
+const coords = Array.from(shapes).map(() => ({ x: 0, y: 0 }));
+const offsets = Array.from(shapes).map(() => ({
+  x: (Math.random() * 200 - 100),
+  y: (Math.random() * 200 - 100),
+  angle: Math.random() * 360
+}));
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animate() {
+  shapes.forEach((shape, i) => {
+    const speed = 0.05 + i * 0.03;
+    const targetX = mouseX + offsets[i].x;
+    const targetY = mouseY + offsets[i].y;
+
+    coords[i].x += (targetX - coords[i].x) * speed;
+    coords[i].y += (targetY - coords[i].y) * speed;
+
+    offsets[i].angle += 1;
+    shape.style.transform = `translate3d(${coords[i].x}px, ${coords[i].y}px, 0px) rotate(${offsets[i].angle}deg)`;
+  });
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
 
   <!-- JS link -->
   <script src="script.js"></script>
