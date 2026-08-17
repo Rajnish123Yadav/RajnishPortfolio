@@ -3,419 +3,1051 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rajnish Yadav | Portfolio</title>
-    <!-- External CSS link -->
-    <link rel="stylesheet" href="style.css">
-
-
-    <style>
-  /* ===== Triangle Background ===== */
-  .cursor-shape {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    background: rgba(74, 126, 219, 0.12);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    pointer-events: none;
-    transform: translate(-50%, -50%) rotate(0deg);
-    filter: blur(4px);
-    z-index: 1; /* behind all content */
-  }
-
-  body {
-    overflow-x: hidden;
-  }
-</style>
+  <title>Rajnish Yadav | Java Full Stack Developer</title>
+  <meta name="description" content="Rajnish Yadav – Java Full Stack Developer with expertise in Spring Boot, Microservices, REST APIs" />
+  <meta property="og:title" content="Rajnish Yadav | Java Full Stack Developer" />
+  <meta property="og:description" content="Building scalable backend systems with Java, Spring Boot, and modern technologies." />
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
-  
-<!-- ===== Triangle Background ===== -->
-<div class="cursor-shape"></div>
-<div class="cursor-shape"></div>
-<div class="cursor-shape"></div>
-<div class="cursor-shape"></div>
-<div class="cursor-shape"></div>
-<div class="cursor-shape"></div>
-<div class="cursor-shape"></div>
+  <!-- ===== CUSTOM CURSOR ===== -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
 
-  <!-- Sidebar -->
-  <div class="sidebar-backdrop" id="backdrop"></div>
-  <aside class="sidebar" id="sidebar" aria-hidden="true" aria-label="Sidebar">
-    <button class="icon-btn close" id="closeSidebar" aria-label="Close sidebar">✕</button>
-    <a href="#home">🏠 Home</a>
-    <a href="#about">🙋 About</a>
-    <a href="#projects">🧩 Projects</a>
-    <a href="#skills">🛠️ Skills</a>
-    <a href="#contact">✉️ Contact</a>
-    <div style="margin-top:auto; display:flex; gap:.5rem;">
-      <button class="btn" id="toggleTheme">Toggle Theme</button>
-      <a class="btn primary" href="#contact">Hire Me</a>
+  <!-- ===== PRELOADER ===== -->
+  <div class="preloader" id="preloader">
+    <div class="loader">
+      <div class="loader-ring"></div>
+      <div class="loader-text">Loading<span>.</span><span>.</span><span>.</span></div>
     </div>
-  </aside>
+  </div>
 
-  <!-- Top Bar / Navbar -->
-  <nav class="topbar">
-    <div class="container inner">
-      <div class="brand">
-        <div class="logo">RY</div>
-        <span>Rajnish Yadav</span>
+  <!-- ===== SCROLL PROGRESS BAR ===== -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ===== FLOATING BUTTONS ===== -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/916393652674" class="floating-btn whatsapp" target="_blank" data-tooltip="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="mailto:rajnishyadav1242@gmail.com" class="floating-btn email" data-tooltip="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="tel:+916393652674" class="floating-btn phone" data-tooltip="Call Me">
+      <i class="fas fa-phone"></i>
+    </a>
+  </div>
+
+  <!-- ===== SEARCH OVERLAY ===== -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="🔍 Search projects, skills, technologies..." />
+      <div id="searchResults"></div>
+      <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+
+  <!-- ===== THEME CUSTOMIZER ===== -->
+  <div class="theme-customizer" id="themeCustomizer">
+    <button class="customizer-toggle" id="customizerToggle"><i class="fas fa-palette"></i></button>
+    <div class="customizer-panel" id="customizerPanel">
+      <h4><i class="fas fa-palette"></i> Colors</h4>
+      <div class="color-options">
+        <button class="color-btn active" data-color="#6366f1" style="background:#6366f1"></button>
+        <button class="color-btn" data-color="#8b5cf6" style="background:#8b5cf6"></button>
+        <button class="color-btn" data-color="#06b6d4" style="background:#06b6d4"></button>
+        <button class="color-btn" data-color="#ec4899" style="background:#ec4899"></button>
+        <button class="color-btn" data-color="#f59e0b" style="background:#f59e0b"></button>
       </div>
-
-      <div class="nav" role="menubar">
-        <a href="#home" role="menuitem">Home</a>
-        <a href="#about" role="menuitem">About</a>
-        <a href="#projects" role="menuitem">Projects</a>
-        <a href="#skills" role="menuitem">Skills</a>
-        <div class="dropdown" role="menuitem">
-          <div class="dropdown-btn" id="dropBtn" aria-expanded="false" aria-haspopup="true">More ▾</div>
-          <div class="dropdown-menu" id="dropdownMenu" role="menu">
-            <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
-            <a href="Image/Rajnish Yadav Resume(1) (2).pdf">Download Resume</a>
-          </div>
-        </div>
+      <h4><i class="fas fa-text-height"></i> Font Size</h4>
+      <input type="range" min="14" max="20" value="16" id="fontSizeSlider" />
+      <h4><i class="fas fa-th"></i> Layout</h4>
+      <div class="layout-options">
+        <button class="layout-btn active" data-layout="grid"><i class="fas fa-th"></i> Grid</button>
+        <button class="layout-btn" data-layout="list"><i class="fas fa-list"></i> List</button>
       </div>
+    </div>
+  </div>
 
-      <div class="actions">
-        <button class="icon-btn" id="toggleThemeTop" aria-label="Toggle theme">🌓</button>
-        <button class="icon-btn hamburger" id="openSidebar" aria-label="Open menu">☰</button>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#home" class="logo">
+        <span class="logo-icon">RY</span>
+        <span class="logo-text">Rajnish</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="search-btn" id="searchBtn" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </nav>
 
-  <!-- Header / Hero -->
-  <header id="home" class="hero container">
-    <div class="content">
-      <div>
-        <span class="chip">Spring Boot Microservices • REST API • Oracle</span>
-        <h1>Hi, I’m Rajnish — Java Developer crafting clean, scalable backends.</h1>
-        <p class="lead">I build reliable APIs, robust data layers, and user‑friendly web apps. Explore my work below and feel free to reach out for collaborations, freelancing, or full‑time opportunities.
-        </p>
-        <div style="display:flex; gap:.6rem; margin-top: .9rem;">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn" href="#contact">Contact Me</a>
-        </div>
-      </div>
-      <div class="bubble">
-        <span>🚀 Available for Freelance</span>
-      </div>
-    </div>
-  </header>
-
-  <!-- About -->
-  <section id="about" class="container">
-    <div class="section-head">
-      <h2>About</h2>
-      <p>Short intro</p>
-    </div>
-    <div class="card">
-  <p>
-    I’m a <strong>Software Developer</strong> with hands-on experience in 
-    <strong>Spring Boot & Microservices</strong>, <strong>REST APIs</strong>, 
-    <strong>Hibernate/JPA</strong>, and <strong>MySQL / Oracle / PostgreSQL and MongoDB</strong>. 
-    I enjoy transforming complex problems into simple, scalable solutions 
-    and writing clean, maintainable code.
-  </p>
-  <p>
-    Recently, I’ve developed projects including:
-    <br>• <em>Patient Appointment System</em>
-    <br>• <em>Dealer & Vehicle API</em>
-    <br>• <em>Actor Management Application</em>  
-    with multi-datasource setups using <strong>MySQL, PostgreSQL, Oracle</strong>, and <strong>MongoDB</strong>.
-  </p>
-</div>
-
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="container">
-    <div class="section-head">
-      <h2>Projects</h2>
-      <p>Some recent work</p>
-    </div>
-    <div class="grid projects">
-      <article class="card project">
-        <!--<div class="thumb">Project Cover</div>-->
-        <div class="thumb">
-          <img src="Image/proj1.png" alt="Patient Appointment System Cover" />
-        </div>
-        <h3>Patient Appointment System</h3>
-        <p>A Spring Boot-based system for managing patients, appointments, doctors, and visits with REST APIs and console menu options.</p>
-        <div class="meta">
-          <span class="chip">Spring Boot</span>
-          <span class="chip">Query methods</span> 
-          <span class="chip">Spring Data JPA</span>
-          <span class="chip">REST API</span>
-          <span class="chip">Hibernate</span>
-          <span class="chip">MongoDB</span>
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-wrapper">
+        <div class="hero-content">
+          <span class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>Available for Work</span>
+          </span>
           
-        </div>        
-      </article>
+          <h1>
+            <span class="line-1">Hi, I'm</span>
+            <span class="gradient-text">Rajnish Yadav</span>
+          </h1>
+          
+          <div class="dynamic-text">
+            <span class="prefix">I'm a</span>
+            <span class="typed-text" id="typedText"></span>
+            <span class="cursor">|</span>
+          </div>
+          
+          <p class="hero-desc">
+            Java Developer with hands-on experience in Spring Boot, Spring Security, 
+            JPA/Hibernate, and REST APIs. Currently working as a Software Developer 
+            Intern at Gaongram Pvt. Ltd.
+          </p>
+          
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">
+              <span>View Projects</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="Image/Resume%20(3).pdf" class="btn btn-secondary">
+              <i class="fas fa-file-pdf"></i> Resume
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fas fa-envelope"></i> Contact
+            </a>
+          </div>
+          
+          <div class="hero-social">
+            <a href="https://github.com/Rajnish123Yadav" target="_blank" class="social-link" data-tooltip="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/rajnish-yadav-235b35273/" target="_blank" class="social-link" data-tooltip="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:rajnishyadav1242@gmail.com" class="social-link" data-tooltip="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://twitter.com/rajnishyadav" target="_blank" class="social-link" data-tooltip="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://youtube.com/@rajnishyadav" target="_blank" class="social-link" data-tooltip="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
 
-      <article class="card project">
-        <!--<div class="thumb">Project Cover</div>-->
-         <div class="thumb">
-          <img src="Image/libraymngt.png" alt="Book Store Application" />
-        </div>
-        <h3>library Management System</h3>
-        <p>A Spring Boot console-based CRUD system for managing books with entity-relation mapping (Book ↔ Author) and database persistence.</p>
-        <div class="meta">
-          <span class="chip">Spring Boot</span>
-          <span class="chip">Spring Data JPA</span>
-          <span class="chip">PostgreSQL</span>
-          <span class="chip">Hibernate & Query methods</span>
-          <span class="chip">Soft deletion/span>
-          <span class="chip">PostgreSQL</span>
-        </div>
-      </article>
-      
-
-      <article class="card project">
-        <!--<div class="thumb">Project Cover</div>-->
-        <div class="thumb">
-          <img src="Image/proj2.png" alt="Employee Management System Cover" />
-        </div>
-        <h3>Employee Management System</h3>
-        <p>A Spring Boot console-based CRUD application for managing employees with layered architecture (Entity, Repository, Service) and database integration.</p>
-        <div class="meta">
-          <span class="chip">Spring Boot</span>
-          <span class="chip">Spring Data JPA</span>
-          <span class="chip">Hibernate & Query methods</span>
-          <span class="chip">REST API</span>
-          <span class="chip">OracleDB</span>
-        </div>        
-      </article>
-
-      <article class="card project">
-        <!--<div class="thumb">Project Cover</div>-->
-        <div class="thumb">
-          <img src="Image/pro4.png" alt="Actor Management API" />
-        </div> 
-        <h3>Actor Management System</h3>
-        <p>REST API with soft delete, pagination, and filtering using Spring Data JPA.</p>
-        <div class="meta">
-          <span class="chip">Spring Data JPA</span>
-          <span class="chip">REST API & H2</span>
-          <span class="chip">Pagination</span>
-          <span class="chip">Hibernate & Query methods</span>
-          <span class="chip">Soft deletion</span>
-          <span class="chip">PostgreSQL</span>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="container">
-    <div class="section-head">
-      <h2>Skills</h2>
-      <p>Core technologies</p>
-    </div>
-    <div class="grid skills">
-      <div class="card skill">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.4rem">
-          <strong>Java / OOP / Collections</strong><span>Advanced</span>
-        </div>
-        <div class="bar"><span data-width="92%"></span></div>
-      </div>
-      <div class="card skill">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.4rem">
-          <strong>Spring Boot & Microservices</strong><span>Advanced</span>
-        </div>
-        <div class="bar"><span data-width="88%"></span></div>
-      </div>
-      <div class="card skill">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.4rem">
-          <strong>REST APIs</strong><span>Advanced</span>
-        </div>
-        <div class="bar"><span data-width="90%"></span></div>
-      </div>
-      <div class="card skill">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.4rem">
-          <strong>PostgreSQL / OracleDB</strong><span>Intermediate</span>
-        </div>
-        <div class="bar"><span data-width="75%"></span></div>
-      </div>
-    </div>
-  </section>
-
-
-   <!-- Skills (Extended with Icons Grid) -->
-<section id="skills" class="container">
-    <div class="section-head">
-      <h2>Tools & technologies</h2>
-      <p>Core technologies and tools I use</p>
-    </div>
-  
-    <!-- Existing skill bars here (optional keep/remove) -->
-  
-    <!-- New Grid Section -->
-    <div class="edu-exp grid" style="gap:2rem;">
-      <!-- Frontend -->
-      <div class="card">
-        <h3>Frontend Development</h3>
-        <div class="grid-container">
-          <div class="grid-items"><img src="Image/html5.png" alt=""><p>HTML5</p></div>
-          <div class="grid-items"><img src="Image/cssimg.png" alt=""><p>CSS3</p></div>
-          <div class="grid-items"><img src="Image/bootstrap.png" alt=""><p>Bootstrap</p></div>
-          <div class="grid-items"><img src="Image/js.png" alt=""><p>Java Script</p></div>
-          <div class="grid-items"><img src="Image/flutter.png" alt=""><p>Flutter UI</p></div>
-          <div class="grid-items"><img src="Image/material-ui.png" alt=""><p>Material UI</p></div>
-        </div>
-      </div>
-  
-      <!-- Tools -->
-      <div class="card">
-        <h3>Development Tools & Software</h3>
-        <div class="grid-container">
-          <div class="grid-items"><img src="Image/VS-Code.png" alt=""><p>VS Code</p></div>
-          <div class="grid-items"><img src="Image/git (1).png" alt=""><p>Git</p></div>
-          <div class="grid-items"><img src="Image/social.png" alt=""><p>GitHub</p></div>
-          <div class="grid-items"><img src="Image/android-studio.png" alt=""><p>Android Studio</p></div>
-          <div class="grid-items"><img src="Image/javaeclipse.png" alt=""><p>Eclipse</p></div>
-          <div class="grid-items"><img src="Image/figma.png" alt=""><p>Figma</p></div>
-        </div>
-      </div>
-  
-      <!-- Backend -->
-      <div class="card">
-        <h3>Backend Development</h3>
-        <div class="grid-container">
-          <div class="grid-items"><img src="Image/Java.png" alt=""><p>Java</p></div>
-          <div class="grid-items"><img src="Image/spring-boot.png" alt=""><p>Spring-Boot</p></div>
-          <div class="grid-items"><img src="Image/database.png" alt=""><p>Oracle db</p></div>
-          <div class="grid-items"><img src="Image/mysql.png" alt=""><p>MySQL</p></div>
-          <div class="grid-items"><img src="Image/firebase.png" alt=""><p>Firebase</p></div>
-          <div class="grid-items"><img src="Image/AWS.png" alt=""><p>AWS</p></div>
+        <div class="hero-visual">
+          <div id="particles-canvas"></div>
+          
+          <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+          </div>
+          
+          <div class="profile-card">
+            <div class="profile-image">
+              <img src="Image/proImage.png" alt="Rajnish Yadav" id="profileImg" />
+              <div class="status-dot"><i class="fas fa-circle"></i></div>
+            </div>
+            <div class="profile-info">
+              <div class="profile-tech">
+                <span class="tech-tag"><i class="fab fa-java"></i> Java</span>
+                <span class="tech-tag"><i class="fas fa-leaf"></i> Spring Boot</span>
+                <span class="tech-tag"><i class="fab fa-flutter"></i> Flutter</span>
+              </div>
+              <div class="profile-stats">
+                <div class="stat">
+                  <span class="stat-number" data-count="7" data-plus="true">0</span>
+                  <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-number" data-count="4" data-plus="true">0</span>
+                  <span class="stat-label">Certificates</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-number" data-count="8" data-plus="true">0</span>
+                  <span class="stat-label">Technologies</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Experience (anchor target for dropdown) -->
-  <section id="experience" class="container">
-    <div class="section-head">
-      <h2>Experience</h2>
-      <p>Highlights</p>
-    </div>
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-      <div class="card">
-        <h3>Java Developer — Projects</h3>
-        <p>6+ months of hands‑on development building real-world apps using Spring Boot and REST.</p>
-        <ul>
-          <li>Designed and implemented scalable APIs</li>
-          <li>Integrated databases and optimized queries</li>
-          <li>Used patterns like Strategy & layered architecture</li>
-        </ul>
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fas fa-user"></i> About Me</span>
+        <h2 class="section-title">Know Me Better</h2>
+        <div class="section-line"></div>
       </div>
-      <div class="card">
-        <h3>Full Stack Foundations</h3>
-        <p>Working knowledge of HTML/CSS/JS with ability to craft simple UIs and connect to APIs.</p>
-        <ul>
-          <li>Auth flows, validation, and error handling</li>
-          <li>Responsive UI components</li>
-          <li>Deployed apps (local/cloud)</li>
-        </ul>
+
+      <div class="about-grid">
+        <div class="about-content">
+          <p class="about-text">
+            I'm a <strong>Java Developer</strong> with hands-on experience in 
+            <span class="highlight">Core Java, Spring Boot, Spring Security, Spring Data JPA, Hibernate, and REST APIs</span>.
+          </p>
+          <p class="about-text">
+            Currently working as a <strong>Software Developer Intern</strong> at Gaongram Pvt. Ltd., 
+            contributing to full-stack applications using Java, Spring Boot, and Flutter.
+          </p>
+          <p class="about-text">
+            I have strong command over <span class="highlight">Java 8+ features</span> including 
+            Streams API, Lambda Expressions, Functional Interfaces, and Collections Framework.
+          </p>
+          
+          <div class="about-stats">
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fas fa-code"></i></div>
+              <div class="stat-info">
+                <span class="stat-number" data-count="7" data-plus="true">0</span>
+                <span class="stat-label">Projects</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fas fa-database"></i></div>
+              <div class="stat-info">
+                <span class="stat-number" data-count="5" data-plus="true">0</span>
+                <span class="stat-label">Databases</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+              <div class="stat-info">
+                <span class="stat-number" data-count="4" data-plus="true">0</span>
+                <span class="stat-label">Certifications</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+              <div class="stat-info">
+                <span class="stat-number" data-count="8" data-plus="true">0</span>
+                <span class="stat-label">Technologies</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-skills">
+          <div class="skill-group">
+            <h4><i class="fas fa-server"></i> Backend Stack</h4>
+            <div class="skill-bars">
+              <div class="skill-bar">
+                <span>Spring Boot</span>
+                <div class="progress"><div class="progress-fill" style="width: 85%"></div></div>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="skill-bar">
+                <span>Spring Security</span>
+                <div class="progress"><div class="progress-fill" style="width: 80%"></div></div>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="skill-bar">
+                <span>JPA/Hibernate</span>
+                <div class="progress"><div class="progress-fill" style="width: 85%"></div></div>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="skill-bar">
+                <span>REST APIs</span>
+                <div class="progress"><div class="progress-fill" style="width: 90%"></div></div>
+                <span class="skill-percent">90%</span>
+              </div>
+              <div class="skill-bar">
+                <span>Microservices</span>
+                <div class="progress"><div class="progress-fill" style="width: 75%"></div></div>
+                <span class="skill-percent">75%</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4><i class="fas fa-mobile-alt"></i> Frontend & Mobile</h4>
+            <div class="skill-bars">
+              <div class="skill-bar">
+                <span>Flutter</span>
+                <div class="progress"><div class="progress-fill" style="width: 70%"></div></div>
+                <span class="skill-percent">70%</span>
+              </div>
+              <div class="skill-bar">
+                <span>HTML/CSS</span>
+                <div class="progress"><div class="progress-fill" style="width: 80%"></div></div>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="skill-bar">
+                <span>JavaScript</span>
+                <div class="progress"><div class="progress-fill" style="width: 75%"></div></div>
+                <span class="skill-percent">75%</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="contact">
-  <h2 class="section-title">Contact Me</h2>
-  <div class="contact-container">
-    <!-- Contact Form -->
-    <form class="contact-form" action="https://api.web3forms.com/submit" method="post">
-      <div class="form-group">
-         <input type="hidden" name="access_key" value="d782f8df-ec8c-4e17-bfdc-35496cba177e">
-                
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required />
+  <!-- ===== RESUME SECTION ===== -->
+  <section id="resume" class="section resume-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fas fa-file-alt"></i> Resume</span>
+        <h2 class="section-title">My Resume</h2>
+        <div class="section-line"></div>
       </div>
 
-      <div class="form-group">
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" required />
+      <div class="resume-container">
+        <div class="resume-card">
+          <!-- Resume Header -->
+          <div class="resume-header">
+            <div>
+              <h1>RAJNISH YADAV</h1>
+              <h3><i class="fas fa-code"></i> Java Full Stack Developer</h3>
+            </div>
+            <div class="resume-contact">
+              <p><i class="fas fa-phone"></i> +91 6393652674</p>
+              <p><i class="fas fa-envelope"></i> <a href="mailto:rajnishyadav1242@gmail.com">rajnishyadav1242@gmail.com</a></p>
+              <p><i class="fab fa-github"></i> <a href="https://github.com/Rajnish123Yadav" target="_blank">github.com/Rajnish123Yadav</a></p>
+              <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/rajnish-yadav-235b35273/" target="_blank">linkedin.com/in/rajnish-yadav</a></p>
+            </div>
+          </div>
+
+          <hr />
+
+          <!-- Professional Summary -->
+          <div class="resume-block">
+            <h4><i class="fas fa-user-tie"></i> PROFESSIONAL SUMMARY</h4>
+            <p style="color: var(--text-secondary); line-height: 1.8;">
+              Java Developer with hands-on experience in Core Java, Spring Boot, Spring MVC, 
+              Spring Security, Spring Data JPA, Hibernate, and REST APIs. Experienced in 
+              developing secure backend services using JWT authentication, RBAC, MySQL, and 
+              layered architecture. Currently working as a Software Developer Intern at 
+              Gaongram Pvt. Ltd., contributing to full-stack applications using Java, Spring Boot, 
+              and Flutter.
+            </p>
+          </div>
+
+          <!-- Technical Skills -->
+          <div class="resume-block">
+            <h4><i class="fas fa-tools"></i> TECHNICAL SKILLS</h4>
+            <div class="resume-skills-grid">
+              <div><strong>Languages:</strong> Java, SQL, JavaScript, Dart</div>
+              <div><strong>Backend:</strong> Spring Boot, Spring MVC, Spring Security, JPA, Hibernate, REST APIs</div>
+              <div><strong>Frontend:</strong> Flutter, HTML5, CSS3, Bootstrap</div>
+              <div><strong>Databases:</strong> MySQL, PostgreSQL, Oracle, MongoDB</div>
+              <div><strong>DevOps:</strong> Docker, Git, AWS EC2, Kafka</div>
+              <div><strong>Concepts:</strong> OOP, Java 8, JWT, RBAC, MVC, SOLID, Agile</div>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div class="resume-block">
+            <h4><i class="fas fa-briefcase"></i> PROFESSIONAL EXPERIENCE</h4>
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <strong>Software Developer Intern</strong>
+                <span><i class="far fa-calendar-alt"></i> 2026 – Present</span>
+              </div>
+              <em><i class="fas fa-building"></i> Gaongram Pvt. Ltd., Lucknow</em>
+              <ul>
+                <li>Developing backend services using Java and Spring Boot</li>
+                <li>Implemented JWT-based authentication and RBAC</li>
+                <li>Built responsive Flutter modules with GetX state management</li>
+                <li>API testing using Postman and Git for version control</li>
+                <li>Integrated third-party services and payment gateways</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Projects -->
+          <div class="resume-block">
+            <h4><i class="fas fa-project-diagram"></i> PROJECTS</h4>
+            
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <strong>Appointment Booking SaaS</strong>
+                <span>Spring Boot | JWT | Flutter | Kafka</span>
+              </div>
+              <p>Full-stack appointment booking with JWT auth, RBAC, Cloudinary, and Kafka for async notifications.</p>
+              <a href="https://github.com/Rajnish123Yadav/appointment-booking-saas" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <strong>Payment Gateway Simulation API</strong>
+                <span>Spring Boot | JPA | PostgreSQL</span>
+              </div>
+              <p>Payment simulation supporting UPI, Card, NetBanking with auto-status updates.</p>
+              <a href="https://github.com/Rajnish123Yadav/Payment-Gateway-Simulation-APIs" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <strong>Actor Management System</strong>
+                <span>Spring Boot | JPA | JSP | MySQL</span>
+              </div>
+              <p>CRUD operations with search, filter, pagination, and validation.</p>
+              <a href="https://github.com/Rajnish123Yadav/Actor-Management-System-Spring-Boot-JPA-JSP-" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <strong>Library Book Management System</strong>
+                <span>Spring Boot | MVC | PostgreSQL</span>
+              </div>
+              <p>CRUD REST APIs, book search, sorting, availability tracking.</p>
+              <a href="https://github.com/Rajnish123Yadav/Library-Book-Management-System-Spring-Boot-MVC-PostgreSQL-" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="resume-block">
+            <h4><i class="fas fa-graduation-cap"></i> EDUCATION</h4>
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <strong>MCA</strong>
+                <span>CGPA 8.5/10</span>
+              </div>
+              <em>Integral University</em>
+            </div>
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <strong>BSc</strong>
+              </div>
+              <em>Shri Guru Gorakhnath PG College</em>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div class="resume-block">
+            <h4><i class="fas fa-certificate"></i> CERTIFICATIONS</h4>
+            <ul style="color: var(--text-secondary); padding-left: 1.5rem;">
+              <li>Java Full Stack Developer - Naresh I Technologies</li>
+              <li>Industrial Training Program - Analyze InfoTech Pvt. Ltd.</li>
+            </ul>
+          </div>
+
+          <!-- Resume Actions -->
+          <div class="resume-actions">
+            <a href="Resume.pdf" download class="btn btn-primary" id="downloadResumeBtn">
+              <i class="fas fa-download"></i> Download Resume (PDF)
+            </a>
+            <a href="Resume.pdf" target="_blank" class="btn btn-secondary">
+              <i class="fas fa-eye"></i> View Resume
+            </a>
+            
+            <div id="adminUploadSection" style="display: none;">
+              <button class="btn btn-secondary" id="toggleUploadBtn">
+                <i class="fas fa-upload"></i> Upload New Resume
+              </button>
+            </div>
+          </div>
+
+          <!-- Upload Area -->
+          <div id="uploadArea" style="display: none;">
+            <div class="resume-upload-area" id="dropZone">
+              <span class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></span>
+              <p><strong>Drop your resume here</strong> or click to browse</p>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">
+                Supported: PDF, DOC, DOCX (Max 5MB)
+              </p>
+              <input type="file" id="resumeFileInput" accept=".pdf,.doc,.docx" />
+              <label for="resumeFileInput" class="resume-upload-label"><i class="fas fa-file"></i> Choose File</label>
+              <div id="uploadStatus" class="upload-status"></div>
+            </div>
+
+            <div id="currentResumeInfo" class="resume-file-info" style="display: none;">
+              <span class="file-icon"><i class="fas fa-file-pdf"></i></span>
+              <div class="file-details">
+                <strong id="resumeFileName">Resume.pdf</strong>
+                <small id="resumeFileSize">Uploaded: Not available</small>
+              </div>
+              <div class="file-actions">
+                <a href="Resume.pdf" download class="btn btn-sm btn-primary" id="downloadUploadedBtn"><i class="fas fa-download"></i></a>
+                <button class="btn btn-sm btn-outline" id="deleteResumeBtn" style="color: #ef4444; border-color: #ef4444;"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="form-group">
-        <label for="message">Drop a Line...</label>
-        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-      </div>
-
-      <button type="submit" class="btn">Get in Touch</button>
-    </form>
-
-    <!-- Quick Links Card -->
-    <div class="contact-card">
-      <h3>Quick Links</h3>
-      <ul class="contact-link">
-        <li><a href="mailto:rajnishyadav1242@email.com">📧 rajnishyadav1242@gmail.com</a></li>
-        <li><a href="tel:+916393652674">📞 +91 6393652674</a></li>
-        <li><a href="https://www.linkedin.com/in/rajnish-yadav-235b35273/" target="_blank">🔗 LinkedIn</a></li>
-        <li><a href="https://github.com/Rajnish123Yadav" target="_blank">💻 GitHub</a></li>
-      </ul>
-
-      <div class="social-icons">
-        <a href="#"><img src="Image/facebook.png" alt="Facebook" /></a>
-        <a href="#"><img src="Image/twitter.png" alt="Twitter" /></a>
-        <a href="https://www.instagram.com/whorajnishyadav/"><img src="Image/instagram.png" alt="Instagram" /></a>
-        <a href="Image/Resume (2).pdf"><img src="Image/download2.png" alt="Download Resume" /></a>
-      </div>          
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- Footer -->
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fas fa-code-branch"></i> Portfolio</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> All</button>
+        <button class="filter-btn" data-filter="spring"><i class="fas fa-leaf"></i> Spring Boot</button>
+        <button class="filter-btn" data-filter="flutter"><i class="fab fa-flutter"></i> Flutter</button>
+        <button class="filter-btn" data-filter="microservices"><i class="fas fa-network-wired"></i> Microservices</button>
+        <button class="filter-btn" data-filter="cloud"><i class="fas fa-cloud"></i> Cloud</button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card" data-category="spring flutter">
+          <div class="project-icon"><i class="fas fa-calendar-check"></i></div>
+          <div class="project-content">
+            <h3>Appointment Booking SaaS</h3>
+            <p>Full-stack SaaS appointment booking with JWT authentication, RBAC, calendar integration, email/SMS reminders, and multi-tenant support.</p>
+            <div class="project-tags">
+              <span>Spring Boot</span><span>JWT</span><span>JPA/Hibernate</span>
+              <span>MySQL</span><span>Docker</span><span>Flutter</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-sm btn-primary" onclick="showLiveDemo()"><i class="fas fa-play"></i> Live Demo</a>
+              <a href="https://github.com/Rajnish123Yadav/appointment-booking-saas" target="_blank" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" data-category="spring">
+          <div class="project-icon"><i class="fas fa-credit-card"></i></div>
+          <div class="project-content">
+            <h3>Payment Gateway Simulation API</h3>
+            <p>A Spring Boot REST API that simulates dealer subscription payment processing with PostgreSQL. Supports UPI, Card, and NetBanking with auto-status updates.</p>
+            <div class="project-tags">
+              <span>Spring Boot</span><span>JWT</span><span>JPA/Hibernate</span>
+              <span>PostgreSQL</span><span>REST APIs</span><span>Maven</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Rajnish123Yadav/Payment-Gateway-Simulation-APIs" target="_blank" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card" data-category="spring">
+          <div class="project-icon"><i class="fas fa-user-astronaut"></i></div>
+          <div class="project-content">
+            <h3>Actor Management System</h3>
+            <p>A RESTful Actor Management System with full CRUD operations, search, filter, pagination, and validation using Spring Boot, JPA, JSP, and MySQL.</p>
+            <div class="project-tags">
+              <span>Spring Boot</span><span>JPA</span><span>JSP</span>
+              <span>MySQL</span><span>REST APIs</span><span>Maven</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Rajnish123Yadav/Actor-Management-System-Spring-Boot-JPA-JSP-" target="_blank" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card" data-category="spring">
+          <div class="project-icon"><i class="fas fa-book"></i></div>
+          <div class="project-content">
+            <h3>Library Book Management System</h3>
+            <p>A Library Management System with CRUD REST APIs, book search, sorting, availability tracking, and Spring Data JPA relationships using PostgreSQL.</p>
+            <div class="project-tags">
+              <span>Spring Boot</span><span>Spring MVC</span><span>JPA/Hibernate</span>
+              <span>PostgreSQL</span><span>JSP</span><span>Maven</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Rajnish123Yadav/Library-Book-Management-System-Spring-Boot-MVC-PostgreSQL-" target="_blank" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card" data-category="spring">
+          <div class="project-icon"><i class="fas fa-comments"></i></div>
+          <div class="project-content">
+            <h3>Real-Time Chat Application</h3>
+            <p>WebSocket-based real-time chat application with Spring Boot, STOMP, SockJS, and MongoDB for message persistence with JWT authentication.</p>
+            <div class="project-tags">
+              <span>Spring Boot</span><span>WebSocket</span><span>STOMP</span>
+              <span>MongoDB</span><span>JWT</span><span>React</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Rajnish123Yadav/realtime-chat-app" target="_blank" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card" data-category="spring cloud">
+          <div class="project-icon"><i class="fas fa-cloud"></i></div>
+          <div class="project-content">
+            <h3>Cloud File Storage API</h3>
+            <p>Secure file storage API with AWS S3 integration, Cloudinary CDN, file compression, virus scanning, and shareable links with expiration.</p>
+            <div class="project-tags">
+              <span>Spring Boot</span><span>AWS S3</span><span>Cloudinary</span>
+              <span>JWT</span><span>Docker</span><span>PostgreSQL</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Rajnish123Yadav/cloud-storage-api" target="_blank" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="project-card" data-category="flutter">
+          <div class="project-icon"><i class="fas fa-mobile-alt"></i></div>
+          <div class="project-content">
+            <h3>Flutter E-Commerce App</h3>
+            <p>Cross-platform mobile e-commerce app with Flutter, GetX state management, REST API integration, payment gateway, and push notifications.</p>
+            <div class="project-tags">
+              <span>Flutter</span><span>Dart</span><span>GetX</span>
+              <span>REST APIs</span><span>Firebase</span><span>Push Notifications</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Rajnish123Yadav/flutter-ecommerce" target="_blank" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="project-card featured" data-category="spring microservices cloud">
+          <div class="project-badge"><i class="fas fa-star"></i> Featured</div>
+          <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
+          <div class="project-content">
+            <h3>E-Commerce Microservices</h3>
+            <p>Complete e-commerce platform with Spring Boot microservices, Spring Cloud, Netflix Eureka, API Gateway, and Kafka for event-driven communication.</p>
+            <div class="project-tags">
+              <span>Spring Boot</span><span>Microservices</span><span>Spring Cloud</span>
+              <span>Kafka</span><span>Docker</span><span>JWT</span>
+              <span>PostgreSQL</span><span>Redis</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-sm btn-primary" onclick="showLiveDemo()"><i class="fas fa-play"></i> Live Demo</a>
+              <a href="https://github.com/Rajnish123Yadav/ecommerce-microservices" target="_blank" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fas fa-cogs"></i> Skills</span>
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="skills-tabs">
+        <button class="tab-btn active" data-tab="backend"><i class="fas fa-server"></i> Backend</button>
+        <button class="tab-btn" data-tab="frontend"><i class="fas fa-mobile-alt"></i> Frontend</button>
+        <button class="tab-btn" data-tab="database"><i class="fas fa-database"></i> Database</button>
+        <button class="tab-btn" data-tab="devops"><i class="fas fa-tools"></i> DevOps</button>
+        <button class="tab-btn" data-tab="java8"><i class="fab fa-java"></i> Java 8+</button>
+      </div>
+
+      <div class="skills-content">
+        <div class="skills-panel active" id="backend">
+          <div class="skills-grid">
+            <div class="skill-item"><span>Java</span><div class="skill-level"><div style="width: 90%"></div></div></div>
+            <div class="skill-item"><span>Spring Boot</span><div class="skill-level"><div style="width: 85%"></div></div></div>
+            <div class="skill-item"><span>Spring Security</span><div class="skill-level"><div style="width: 80%"></div></div></div>
+            <div class="skill-item"><span>Spring Data JPA</span><div class="skill-level"><div style="width: 85%"></div></div></div>
+            <div class="skill-item"><span>Hibernate</span><div class="skill-level"><div style="width: 85%"></div></div></div>
+            <div class="skill-item"><span>REST APIs</span><div class="skill-level"><div style="width: 90%"></div></div></div>
+            <div class="skill-item"><span>Microservices</span><div class="skill-level"><div style="width: 75%"></div></div></div>
+            <div class="skill-item"><span>Apache Kafka</span><div class="skill-level"><div style="width: 70%"></div></div></div>
+            <div class="skill-item"><span>Spring Cloud</span><div class="skill-level"><div style="width: 70%"></div></div></div>
+            <div class="skill-item"><span>WebSocket</span><div class="skill-level"><div style="width: 65%"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skills-panel" id="frontend">
+          <div class="skills-grid">
+            <div class="skill-item"><span>Flutter</span><div class="skill-level"><div style="width: 70%"></div></div></div>
+            <div class="skill-item"><span>Dart</span><div class="skill-level"><div style="width: 70%"></div></div></div>
+            <div class="skill-item"><span>HTML5</span><div class="skill-level"><div style="width: 80%"></div></div></div>
+            <div class="skill-item"><span>CSS3</span><div class="skill-level"><div style="width: 80%"></div></div></div>
+            <div class="skill-item"><span>JavaScript</span><div class="skill-level"><div style="width: 75%"></div></div></div>
+            <div class="skill-item"><span>Bootstrap</span><div class="skill-level"><div style="width: 75%"></div></div></div>
+            <div class="skill-item"><span>React</span><div class="skill-level"><div style="width: 60%"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skills-panel" id="database">
+          <div class="skills-grid">
+            <div class="skill-item"><span>MySQL</span><div class="skill-level"><div style="width: 85%"></div></div></div>
+            <div class="skill-item"><span>PostgreSQL</span><div class="skill-level"><div style="width: 80%"></div></div></div>
+            <div class="skill-item"><span>Oracle</span><div class="skill-level"><div style="width: 75%"></div></div></div>
+            <div class="skill-item"><span>MongoDB</span><div class="skill-level"><div style="width: 70%"></div></div></div>
+            <div class="skill-item"><span>Redis</span><div class="skill-level"><div style="width: 65%"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skills-panel" id="devops">
+          <div class="skills-grid">
+            <div class="skill-item"><span>Docker</span><div class="skill-level"><div style="width: 75%"></div></div></div>
+            <div class="skill-item"><span>Git</span><div class="skill-level"><div style="width: 85%"></div></div></div>
+            <div class="skill-item"><span>AWS EC2</span><div class="skill-level"><div style="width: 70%"></div></div></div>
+            <div class="skill-item"><span>AWS S3</span><div class="skill-level"><div style="width: 65%"></div></div></div>
+            <div class="skill-item"><span>Postman</span><div class="skill-level"><div style="width: 85%"></div></div></div>
+            <div class="skill-item"><span>Kubernetes</span><div class="skill-level"><div style="width: 60%"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skills-panel" id="java8">
+          <div class="skills-grid">
+            <div class="skill-item"><span>Streams API</span><div class="skill-level"><div style="width: 85%"></div></div></div>
+            <div class="skill-item"><span>Lambda Expressions</span><div class="skill-level"><div style="width: 85%"></div></div></div>
+            <div class="skill-item"><span>Collections Framework</span><div class="skill-level"><div style="width: 90%"></div></div></div>
+            <div class="skill-item"><span>Functional Interfaces</span><div class="skill-level"><div style="width: 80%"></div></div></div>
+            <div class="skill-item"><span>Multithreading</span><div class="skill-level"><div style="width: 75%"></div></div></div>
+            <div class="skill-item"><span>Exception Handling</span><div class="skill-level"><div style="width: 85%"></div></div></div>
+            <div class="skill-item"><span>Optional Class</span><div class="skill-level"><div style="width: 80%"></div></div></div>
+            <div class="skill-item"><span>CompletableFuture</span><div class="skill-level"><div style="width: 70%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACHIEVEMENT BADGES ===== -->
+  <section class="section achievements">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fas fa-trophy"></i> Achievements</span>
+        <h2 class="section-title">My Badges</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="badges-grid">
+        <div class="badge-card">
+          <span class="badge-icon"><i class="fas fa-medal"></i></span>
+          <h4>Top Performer</h4>
+          <p>Naresh IT 2025</p>
+        </div>
+        <div class="badge-card">
+          <span class="badge-icon"><i class="fas fa-star"></i></span>
+          <h4>5-Star Projects</h4>
+          <p>GitHub Repositories</p>
+        </div>
+        <div class="badge-card">
+          <span class="badge-icon"><i class="fas fa-bullseye"></i></span>
+          <h4>100% Commitment</h4>
+          <p>Project Delivery</p>
+        </div>
+        <div class="badge-card">
+          <span class="badge-icon"><i class="fas fa-rocket"></i></span>
+          <h4>Quick Learner</h4>
+          <p>10+ Technologies</p>
+        </div>
+        <div class="badge-card">
+          <span class="badge-icon"><i class="fas fa-cloud"></i></span>
+          <h4>Cloud Certified</h4>
+          <p>AWS Fundamentals</p>
+        </div>
+        <div class="badge-card">
+          <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+          <h4>Security Expert</h4>
+          <p>JWT & OAuth2</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fas fa-quote-left"></i> Testimonials</span>
+        <h2 class="section-title">What People Say</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="testimonials-grid" id="testimonialsGrid">
+        <div class="testimonial-card active">
+          <p>"Rajnish is an exceptional developer with great problem-solving skills. His Spring Boot expertise helped us deliver the project ahead of schedule."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">JD</div>
+            <div>
+              <strong>John Doe</strong>
+              <span>CTO, TechCorp</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p>"Working with Rajnish was a great experience. He has deep knowledge of Java ecosystem and always writes clean, maintainable code."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SM</div>
+            <div>
+              <strong>Sarah Miller</strong>
+              <span>Senior Developer, CodeLabs</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p>"Rajnish's Flutter skills are impressive. He built our entire mobile app from scratch with smooth UI/UX and excellent performance."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AR</div>
+            <div>
+              <strong>Alex Rivera</strong>
+              <span>Product Manager, AppWorks</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p>"His microservices architecture knowledge is outstanding. He designed our entire system with Spring Cloud, Kafka, and Docker."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MK</div>
+            <div>
+              <strong>Meera Kumar</strong>
+              <span>Architect, CloudTech</span>
+            </div>
+          </div>
+        </div>
+        <button class="testimonial-nav prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="testimonial-nav next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CODING STATS ===== -->
+  <section class="section coding-stats-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fas fa-chart-bar"></i> Live Stats</span>
+        <h2 class="section-title">Coding Activity</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="coding-stats-grid">
+        <div class="coding-stat">
+          <span class="coding-icon"><i class="fas fa-folder-open"></i></span>
+          <span class="coding-value" id="totalRepos">0</span>
+          <span class="coding-label">Repositories</span>
+        </div>
+        <div class="coding-stat">
+          <span class="coding-icon"><i class="fas fa-star"></i></span>
+          <span class="coding-value" id="totalStars">0</span>
+          <span class="coding-label">Stars</span>
+        </div>
+        <div class="coding-stat">
+          <span class="coding-icon"><i class="fas fa-code-branch"></i></span>
+          <span class="coding-value" id="totalForks">0</span>
+          <span class="coding-label">Forks</span>
+        </div>
+        <div class="coding-stat">
+          <span class="coding-icon"><i class="fas fa-users"></i></span>
+          <span class="coding-value" id="totalFollowers">0</span>
+          <span class="coding-label">Followers</span>
+        </div>
+        <!-- <div class="coding-stat">
+          <span class="coding-icon"><i class="fas fa-code-commit"></i></span>
+          <span class="coding-value" id="totalCommits">0</span>
+          <span class="coding-label">Commits</span>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE SECTION ===== -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fas fa-briefcase"></i> Experience</span>
+        <h2 class="section-title">My Journey</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date"><i class="far fa-calendar-alt"></i> 2026 – Present</span>
+            <h3>Software Developer Intern</h3>
+            <span class="timeline-company"><i class="fas fa-building"></i> Gaongram Pvt. Ltd., Lucknow</span>
+            <ul class="timeline-duties">
+              <li>Developing backend services using Java and Spring Boot</li>
+              <li>Implemented JWT-based authentication and RBAC</li>
+              <li>Built responsive Flutter modules with GetX state management</li>
+              <li>API testing using Postman and Git for version control</li>
+              <li>Integrated third-party services and payment gateways</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date"><i class="far fa-calendar-alt"></i> 2024 – 2025</span>
+            <h3>Java Full Stack Training</h3>
+            <span class="timeline-company"><i class="fas fa-university"></i> Naresh I Technologies, Hyderabad</span>
+            <ul class="timeline-duties">
+              <li>Core Java, Advanced Java, Spring Framework, Spring Boot</li>
+              <li>Spring Security, JWT, Microservices, Docker</li>
+              <li>Real-time projects: E-Commerce, Payment Gateway, Chat App</li>
+              <li>Database integration with MySQL, PostgreSQL, MongoDB</li>
+              <li>Cloud deployment with AWS EC2, S3, and Cloudinary</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date"><i class="far fa-calendar-alt"></i> 2023 – 2024</span>
+            <h3>Academic Projects & Learning</h3>
+            <span class="timeline-company"><i class="fas fa-university"></i> Integral University</span>
+            <ul class="timeline-duties">
+              <li>Built multiple Java applications using Spring Boot</li>
+              <li>Explored Java 8+ features: Streams, Lambdas, Collections</li>
+              <li>Learned REST API development and documentation</li>
+              <li>Participated in coding competitions and hackathons</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <!-- <section class="section newsletter-section">
+    <div class="container">
+      <div class="newsletter-wrapper">
+        <h3><i class="fas fa-envelope-open-text"></i> Subscribe to My Newsletter</h3>
+        <p>Get latest updates about my projects, articles, and tech insights</p>
+        <form id="newsletterForm">
+          <div class="newsletter-input">
+            <input type="email" id="newsletterEmail" placeholder="Enter your email" required />
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Subscribe</button>
+          </div>
+          <div id="newsletterStatus"></div>
+        </form>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fas fa-address-card"></i> Contact</span>
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <span>Email</span>
+              <a href="mailto:rajnishyadav1242@gmail.com">rajnishyadav1242@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <span>Phone</span>
+              <a href="tel:+916393652674">+91 6393652674</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+            <div>
+              <span>LinkedIn</span>
+              <a href="https://www.linkedin.com/in/rajnish-yadav-235b35273/" target="_blank">@rajnish-yadav</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-github"></i></div>
+            <div>
+              <span>GitHub</span>
+              <a href="https://github.com/Rajnish123Yadav" target="_blank">@Rajnish123Yadav</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-twitter"></i></div>
+            <div>
+              <span>Twitter</span>
+              <a href="https://twitter.com/rajnishyadav" target="_blank">@rajnishyadav</a>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Your Name" required />
+            <div class="input-line"></div>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Your Email" required />
+            <div class="input-line"></div>
+          </div>
+          <div class="form-group">
+            <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+            <div class="input-line"></div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            <span>Send Message</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+          <div id="formStatus"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <div class="container foot">
-      <p style="font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 14px; color: #333;">
-          @ Rajnish Yadav. All rights reserved.
-      </p>
-
-      <div style="display:flex; gap:.6rem; align-items:center">
-        <a class="btn" href="#home">Back to top ↑</a>
+    <div class="container">
+      <p>© <span id="year"></span> Rajnish Yadav. Made with <i class="fas fa-heart" style="color: #ef4444;"></i></p>
+      <div class="footer-social">
+        <a href="https://github.com/Rajnish123Yadav" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/rajnish-yadav-235b35273/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="mailto:rajnishyadav1242@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        <a href="#" onclick="sharePortfolio()"><i class="fas fa-share-alt"></i> Share</a>
       </div>
     </div>
   </footer>
 
-  <!-- ===== Triangle Animation JS ===== -->
-<script>
-const shapes = document.querySelectorAll('.cursor-shape');
-let mouseX = 0, mouseY = 0;
-const coords = Array.from(shapes).map(() => ({ x: 0, y: 0 }));
-const offsets = Array.from(shapes).map(() => ({
-  x: (Math.random() * 200 - 100),
-  y: (Math.random() * 200 - 100),
-  angle: Math.random() * 360
-}));
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
 
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
-
-function animate() {
-  shapes.forEach((shape, i) => {
-    const speed = 0.05 + i * 0.03;
-    const targetX = mouseX + offsets[i].x;
-    const targetY = mouseY + offsets[i].y;
-
-    coords[i].x += (targetX - coords[i].x) * speed;
-    coords[i].y += (targetY - coords[i].y) * speed;
-
-    offsets[i].angle += 1;
-    shape.style.transform = `translate3d(${coords[i].x}px, ${coords[i].y}px, 0px) rotate(${offsets[i].angle}deg)`;
-  });
-  requestAnimationFrame(animate);
-}
-
-animate();
-</script>
-
-  <!-- JS link -->
   <script src="script.js"></script>
 </body>
 </html>
-
-
